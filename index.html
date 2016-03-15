@@ -29,6 +29,12 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
+		<!-- MathJax -->
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		</script>
+		<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -63,6 +69,12 @@
 
 				<section>
 					<h3>Smoothed Particle Hydrodynamics (SPH)</h3>
+					<ul>
+						<li>
+							Calculation of a property $A$ at position $\textbf{r}$: <br><br>
+							$A_S(\textbf{r}) = \sum_{j}(m_j\frac{A_j}{\rho_j} W(\textbf{r} - \textbf{r}_j, h))$
+						</li>
+					</ul>
 
 					<ul >
 						<li class="fragment" >Pressure force</li>
