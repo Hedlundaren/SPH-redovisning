@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+		<link rel="stylesheet" href="css/theme/sph.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -28,6 +28,12 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+		<!-- MathJax -->
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		</script>
+		<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -49,10 +55,22 @@
 				<section>
 					<h3>Navier-Stokes ekvationer</h3>
 
+					<p class="fragment">Applying Newton’s second law to fluid dynamics</p>
+
 					<ul >
-						<li class="fragment" >Applying Newton’s second law to fluid dynamics</li>
-						<li class="fragment" style="list-style-type: none">Conservation of momentum: <img src = "img/ConservationOfMomentum.png"></img></li>
-						<li class="fragment" style="list-style-type: none">Constervation of mass: <img src = "img/MassConservation.png"></img></li>
+						<li class="fragment">
+							Conservation of mass
+							<br><br>
+							$\frac{\partial {\rho}}{\partial{t}} + \nabla \cdot (\rho \textbf{v}) = 0$
+						</li>
+						<br>
+						<li class="fragment">
+							Conservation of momentum
+							<br><br>
+							$\rho (\frac{\partial \textbf{v}}{\partial{t}} + \textbf{v} \cdot \nabla \textbf{v} ) = - \nabla p + \mu \nabla^2\textbf{v} + \rho \textbf{g}$
+							<br><br>
+							Pressure-, viscosity- and external forces
+						</li>
 					</ul>
 
 					<aside class="notes">
@@ -63,6 +81,12 @@
 
 				<section>
 					<h3>Smoothed Particle Hydrodynamics (SPH)</h3>
+					<ul>
+						<li>
+							Calculation of a property $A$ at position $\textbf{r}$: <br><br>
+							$A_S(\textbf{r}) = \sum_{j}(m_j\frac{A_j}{\rho_j} W(\textbf{r} - \textbf{r}_j, h))$
+						</li>
+					</ul>
 
 					<aside class="notes">
 						Emil
@@ -93,30 +117,38 @@
 					<h3>Fluidparametrar</h3>
 
 					<aside class="notes">
-						Benjamin
+						Benjamin<br><br>
 						*Anteckningar*
 					</aside>
 				</section>
 
-				<section class="fragments">
-					<h3>Implementation</h3>
+				<section>
+					<section class="fragments">
+						<h3>Implementation</h3>
 
-					<ul>
-						<li class="fragment">Matlab</li>
-						<li class="fragment">C++</li>
-						<li class="fragment">
-							OpenCL
-							<ul>
-								<li class="fragment">Multi-core computing</li>
-								<li class="fragment">CL-GL shared memory</li>
-							</ul>
-						</li>
-					</ul>
+						<ul>
+							<li class="fragment">Matlab</li>
+							<li class="fragment">C++</li>
+							<li class="fragment">
+								OpenCL
+								<ul>
+									<li class="fragment">Multi-core computing</li>
+									<li class="fragment">CL-GL shared memory</li>
+								</ul>
+							</li>
+						</ul>
 
-					<aside class="notes">
-						Benjamin
-						*Anteckningar*
-					</aside>
+						<aside class="notes">
+							Benjamin
+							*Anteckningar*
+						</aside>
+					</section>
+
+					<section>
+						<video controls>
+							<source src="video/matlab.mp4" type="video/mp4">
+						</video>
+					</section>
 				</section>
 
 				<section class="fragments">
@@ -151,6 +183,13 @@
 						*Anteckningar*
 					</aside>
 				</section>
+
+				<section class="fragment">
+					<h3>Demo</h3>
+					<video controls class="fragment">
+						<source src="video/demo.mp4" type="video/mp4">
+					</video>
+				</section>
 			</div>
 
 		</div>
@@ -168,7 +207,7 @@
 				history: true,
 				center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
 
 				// Optional reveal.js plugins
 				dependencies: [
