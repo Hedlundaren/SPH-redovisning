@@ -55,10 +55,22 @@
 				<section>
 					<h3>Navier-Stokes ekvationer</h3>
 
+					<p class="fragment">Applying Newton’s second law to fluid dynamics</p>
+
 					<ul >
-						<li class="fragment" style="list-style-type: none">Applying Newton’s second law to fluid dynamics</li>
-						<li class="fragment" style="list-style-type: none"><img src = "img/ConservationOfMomentum.png" style = "display: block; margin-left: auto; margin-right: auto;"></img></li>
-						<li class="fragment" style="list-style-type: none"><img src = "img/MassConservation.png" style = "display: block; margin-left: auto; margin-right: auto;"></img></li>
+						<li class="fragment">
+							Conservation of mass
+							<br><br>
+							$\frac{\partial {\rho}}{\partial{t}} + \nabla \cdot (\rho \textbf{v}) = 0$
+						</li>
+						<br>
+						<li class="fragment">
+							Conservation of momentum
+							<br><br>
+							$\rho (\frac{\partial \textbf{v}}{\partial{t}} + \textbf{v} \cdot \nabla \textbf{v} ) = - \nabla p + \mu \nabla^2\textbf{v} + \rho \textbf{g}$
+							<br><br>
+							Pressure-, viscosity- and external forces
+						</li>
 					</ul>
 
 					<aside class="notes">
@@ -74,15 +86,6 @@
 							Calculation of a property $A$ at position $\textbf{r}$: <br><br>
 							$A_S(\textbf{r}) = \sum_{j}(m_j\frac{A_j}{\rho_j} W(\textbf{r} - \textbf{r}_j, h))$
 						</li>
-					</ul>
-
-					<ul >
-						<li class="fragment" >Pressure force</li>
-						<li class="fragment" >Viscosity force</li>
-						<li class="fragment" >External force</li>
-						<li class="fragment" style="list-style-type: none"><img src = "img/general_equation.png"></img></li>
-						
-						
 					</ul>
 
 					<aside class="notes">
@@ -169,6 +172,13 @@
 					<aside class="notes">
 						*Anteckningar*
 					</aside>
+				</section>
+
+				<section class="fragment">
+					<h3>Demo</h3>
+					<video controls class="fragment">
+						<source src="video/demo.mp4" type="video/mp4">
+					</video>
 				</section>
 			</div>
 
