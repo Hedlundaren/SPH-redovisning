@@ -7,13 +7,13 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #b3d1ff;
-  background: -moz-radial-gradient(center, circle cover, #cce0ff 0%, #b3d1ff 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #cce0ff), color-stop(100%, #b3d1ff));
-  background: -webkit-radial-gradient(center, circle cover, #cce0ff 0%, #b3d1ff 100%);
-  background: -o-radial-gradient(center, circle cover, #cce0ff 0%, #b3d1ff 100%);
-  background: -ms-radial-gradient(center, circle cover, #cce0ff 0%, #b3d1ff 100%);
-  background: radial-gradient(center, circle cover, #cce0ff 0%, #b3d1ff 100%);
+  background: #b3edff;
+  background: -moz-radial-gradient(center, circle cover, #e6f9ff 0%, #b3edff 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #e6f9ff), color-stop(100%, #b3edff));
+  background: -webkit-radial-gradient(center, circle cover, #e6f9ff 0%, #b3edff 100%);
+  background: -o-radial-gradient(center, circle cover, #e6f9ff 0%, #b3edff 100%);
+  background: -ms-radial-gradient(center, circle cover, #e6f9ff 0%, #b3edff 100%);
+  background: radial-gradient(center, circle cover, #e6f9ff 0%, #b3edff 100%);
   background-color: #f7fbfc; }
 
 .reveal {
