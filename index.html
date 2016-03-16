@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Vatten Simulering | Presentation</title>
+		<title>Vatten över huvudet</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 
@@ -28,6 +28,12 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
+		<!-- MathJax -->
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		</script>
+		<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -46,12 +52,54 @@
 				</section>
 
 				<section>
-					<h3>Navier-Stokes ekvationer</h3>
+					<h3>Navier-Stokes equations</h3>
+
+					<p class="fragment">Describes the motion of a fluid</p>
+					<p class="fragment">Applying Newton’s second law to fluid dynamics</p>
 
 					<ul >
-						<p class="fragment" >Applying Newton’s second law to fluid dynamics</p>
-						<p class="fragment" style="list-style-type: none">Conservation of momentum: <img src = "img/ConservationOfMomentum.png"></img></p>
-						<p class="fragment" style="list-style-type: none">Constervation of mass: <img src = "img/MassConservation.png"></img></p>
+						<li class="fragment">
+							Conservation of mass
+							<br><br>
+							$\frac{\partial {\rho}}{\partial{t}} + \nabla \cdot (\rho \textbf{v}) = 0$
+						</li>
+						<br>
+						<li class="fragment">
+							Conservation of momentum
+							<br><br>
+							$\rho (\frac{\partial \textbf{v}}{\partial{t}} + \textbf{v} \cdot \nabla \textbf{v} ) = - \nabla p + \mu \nabla^2\textbf{v} + \rho \textbf{g}$
+							<br><br>
+							Pressure-, viscosity- and external forces
+						</li>
+					</ul>
+
+					<aside class="notes">
+						Emil 
+						Beskriver rörelsen av en fluid
+						Togs fram på 1800-talet
+
+						Härleds ifrån Newtons andra lag tillsammans med antaganden om hur viskositet och tryck påverkar rörelsen
+
+						Det finns flera olika varianter av Navier Stokes som används för olika saker, den vi har använt är för en okomprimerbar fluid
+
+						Hur ser då dessa ekvationer ut?
+
+						så här.. 
+
+
+					</aside>
+				</section>
+
+				<section>
+					<h3>Smoothed Particle Hydrodynamics (SPH)</h3>
+					<ul>
+						<li>
+							Calculation of a property $A$ at position $\textbf{r}$: <br><br>
+							$A_S(\textbf{r}) = \sum_{j}(m_j\frac{A_j}{\rho_j} W(\textbf{r} - \textbf{r}_j, h))$
+						</li>
+						<li class="fragment">
+							$\textbf{f} = - \nabla p + \mu \nabla^2\textbf{v} + \rho \textbf{g}$
+						</li>
 					</ul>
 
 					<aside class="notes">
@@ -61,40 +109,50 @@
 				</section>
 
 				<section>
-					<h3>Smoothed Particle Hydrodynamics (SPH)</h3>
-
-					<aside class="notes">
-						Emil
-						*Anteckningar*
-					</aside>
-				</section>
-
-				<section>
-					<h3>Boundary conditions</h3>
-
-					<aside class="notes">
-						Simon
-						*Anteckningar*
-					</aside>
-				</section>
-
-				<section>
-					<h3>Fluidparametrar</h3>
-
-					<aside class="notes">
-						Benjamin
-						*Anteckningar*
-					</aside>
-				</section>
-
-				<section class="fragments">
-					<h3>Implementation</h3>
+					<section>
+						<h3>Boundary conditions</h3>
 
 						<ul>
-						<li class="fragment">Matlab</li>
-						<li class="fragment">C++</li>
+							<li class="fragment">Constraint-based</li>
+							<li class="fragment">Force-based</li>
+							<li class="fragment">Unpredictable boundaries</li>
+						</ul>
+
+						<aside class="notes">
+							Simon
+							<ul>
+								<li>Du klarar det här</li>
+								<li>Var inte rädd</li>
+								<li>Titta på publiken</li>
+							</ul>						
+						</aside>
+
+					</section>
+
+					<section data-transition="convex-in none-out">
+					<img id="no_border" style="width: 450px; height: auto;" src="img/SPH-boundaries_1.png" style="border: 0px;">
+					</section>
+
+					<section data-transition="none-in none-out">
+					<img id="no_border" style="width: 450px; height: auto;" src="img/SPH-boundaries_2.png" style="border: 0px;">
+
+					</section>
+
+					<section data-transition="none-in none-out">
+					<img id="no_border" style="width: 450px; height: auto;" src="img/SPH-boundaries_3.png" style="border: 0px;">
+
+					</section>
+				</section>
+
+				<section>
+					<section class="fragments">
+						<h3>Implementation</h3>
+
+						<ul>
+							<li class="fragment">Matlab</li>
+							<li class="fragment">C++</li>
 							<li class="fragment">
-								<p>OpenCL</p>
+								OpenCL
 								<ul>
 									<li class="fragment">Multi-core computing</li>
 									<li class="fragment">CL-GL shared memory</li>
@@ -102,10 +160,17 @@
 							</li>
 						</ul>
 
-					<aside class="notes">
-						Benjamin
-						*Anteckningar*
-					</aside>
+						<aside class="notes">
+							Benjamin
+							*Anteckningar*
+						</aside>
+					</section>
+
+					<section>
+						<video controls>
+							<source src="video/matlab.mp4" type="video/mp4">
+						</video>
+					</section>
 				</section>
 
 				<section class="fragments">
@@ -132,11 +197,63 @@
 				</section>
 
 				<section>
-					<h3>Point-splatting</h3>
+				
+					<section>
+						<h3>Rendering</h3>
+						<ul>
+							<li class="fragment">Individual rendering</li>
+							<li class="fragment">Screen Space Rendering with Curvature flow</li>
+						</ul>
+						
+					</section>
+					<section><h3>Depth</h3>
+					<ul>
+						<li class="fragment" style="list-style-type: none;">
+							<img style="width: 550px; height: auto;" src="img/depth_20k.png">
+						</li>
+					</ul></section>
+					<section><h3>Thickness</h3>
+					<ul>
+						<li class="fragment" style="list-style-type: none;">
+							<img style="width: 550px; height: auto;" src="img/thickness_6k.png">
+						</li>
+					</ul></section>
+					<section><h3>Velocity</h3>
+					<ul>
+						<li class="fragment" style="list-style-type: none;">
+							<img style="width: 550px; height: auto;" src="img/velocity_6k.png">
+						</li>
+					</ul></section>
+					<section><h3>Blur</h3>
+					<ul>
+						<li class="fragment" style="list-style-type: none;">
+							<img style="width: 550px; height: auto;" src="img/blurred.png">
+						</li>
+					</ul></section>
+					<section><h3>Composite</h3><ul>
+						<li class="fragment" style="list-style-type: none;">
+							<img style="width: 550px; height: auto;" src="img/compose_light.png">
+						</li>
+					</ul></section>
+					
 
 					<aside class="notes">
 						*Anteckningar*
+						Ind. rend - point sprites and tessShader
+
+						Nämn: Heightmap and GUI
+
+						Utvecklingsområden:
+						Kaustik, refraktion, skum, skuggor, avancerade reflektioner
+
 					</aside>
+				</section>
+
+				<section class="fragment">
+					<h3>Demo</h3>
+					<video controls class="fragment">
+						<source src="video/demo.mp4" type="video/mp4">
+					</video>
 				</section>
 			</div>
 
@@ -155,7 +272,7 @@
 				history: true,
 				center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
 
 				// Optional reveal.js plugins
 				dependencies: [
